@@ -34,12 +34,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "bg-background font-sans antialiased",
             fontSans.variable
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-            <main className="mx-auto my-12 max-w-2xl px-6 antialiased sm:my-32 md:my-16">
+            <main className="mx-auto my-12 max-w-2xl px-6 antialiased sm:my-32">
               {children}
             </main>
           </ThemeProvider>

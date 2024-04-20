@@ -1,3 +1,11 @@
+import { ArticleBoard } from "@/components/article-board"
+import { LicenseIndicator } from "@/components/license-indicator"
+
 export default function IndexPage() {
-  return <ul className="flex">초기 세팅</ul>
+  return (
+    <div>
+      <ArticleBoard />
+      <LicenseIndicator />
+    </div>
+  )
 }
