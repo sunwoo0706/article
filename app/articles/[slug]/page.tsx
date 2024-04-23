@@ -16,7 +16,7 @@ export default async function Article({ params: { slug } }: Params) {
   const article = source.article
 
   return (
-    <div>
+    <section>
       <h1 className="text-normal font-medium text-neutral-900">
         {article.title}
       </h1>
@@ -24,9 +24,9 @@ export default async function Article({ params: { slug } }: Params) {
         dateTime={article.date}
         className="mt-2 pl-px text-[0.8125rem] font-normal text-[#696565]"
       >
-        2024년 7월 6일
+        {article.date}
       </time>
       <Markdown source={source} />
-    </div>
+    </section>
   )
 }
