@@ -1,10 +1,8 @@
-import { notFound } from "next/navigation"
-
-import { getPostBySlug, getPostSlugs } from "@/lib/api"
-import markdownToHtml from "@/lib/markdownToHtml"
+import { getArticleSlugs, getArticleSourceBySlug } from "@/lib/api"
+import { Markdown } from "@/components/markdown"
 
 export async function generateStaticParams() {
-  return getPostSlugs().map((slug) => ({ slug }))
+  return getArticleSlugs().map((slug) => ({ slug }))
 }
 
 type Params = {
@@ -13,19 +11,22 @@ type Params = {
   }
 }
 
-export default async function Post({ params }: Params) {
-  const post = getPostBySlug(params.slug)
-
-  if (!post) {
-    return notFound()
-  }
-
-  const content = await markdownToHtml(post.content || "")
+export default async function Article({ params: { slug } }: Params) {
+  const source = await getArticleSourceBySlug(slug)
+  const article = source.article
 
   return (
-    <section>
-      <p>{post.title}</p>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-    </section>
+    <div>
+      <h1 className="text-normal font-medium text-neutral-900">
+        {article.title}
+      </h1>
+      <time
+        dateTime={article.date}
+        className="mt-2 pl-px text-[0.8125rem] font-normal text-[#696565]"
+      >
+        2024년 7월 6일
+      </time>
+      <Markdown source={source} />
+    </div>
   )
 }

@@ -1,10 +1,10 @@
 import { cx } from "class-variance-authority"
 import { Link } from "next-view-transitions"
 
-import { Post } from "@/types/post"
+import { ArticleType } from "@/types/article"
 
 interface ArticleCardProps extends React.HTMLAttributes<HTMLElement> {
-  post: Post
+  post: ArticleType
 }
 
 export function ArticleCard({ className, post, ...props }: ArticleCardProps) {
@@ -12,7 +12,7 @@ export function ArticleCard({ className, post, ...props }: ArticleCardProps) {
     <Link href={`/${post.slug}`}>
       <section
         className={cx(
-          "flex w-full justify-between rounded p-2 bg-transparent hover:bg-[#F7F7F7] transition-colors cursor-pointer",
+          "flex w-full justify-between rounded p-2 px-3 bg-transparent hover:bg-[#F7F7F7] transition-colors cursor-pointer",
           className
         )}
         {...props}

@@ -1,28 +1,56 @@
 import fs from "fs"
 import { join } from "path"
-import matter from "gray-matter"
+import { serialize } from "next-mdx-remote/serialize"
 
-import { Post } from "@/types/post"
+import { ArticleType } from "@/types/article"
 
-const postsDirectory = join(process.cwd(), "_posts")
+const articleDir = join(process.cwd(), "_articles")
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory)
+export function getArticleSlugs() {
+  return fs.readdirSync(articleDir).map((slug) => slug.replace(/\.mdx$/, ""))
 }
 
-export function getPostBySlug(slug: string) {
-  const realSlug = slug.replace(/\.md$/, "")
-  const fullPath = join(postsDirectory, `${realSlug}.md`)
+const getArticleRawSourceBySlug = (slug: string) => {
+  const fullPath = join(articleDir, `${slug}.mdx`)
   const fileContents = fs.readFileSync(fullPath, "utf8")
-  const { data, content } = matter(fileContents)
 
-  return { ...data, slug: realSlug, content } as Post
+  return fileContents
 }
 
-export function getAllPosts(): Post[] {
-  const slugs = getPostSlugs()
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-  return posts
+export const getArticleSourceBySlug = async (slug: string) => {
+  const fileContents = getArticleRawSourceBySlug(slug)
+
+  const serializedData = await serialize(fileContents, {
+    mdxOptions: {
+      format: "mdx",
+    },
+    parseFrontmatter: true,
+  })
+
+  return {
+    ...serializedData,
+    article: { ...serializedData.frontmatter, slug } as ArticleType,
+  }
+}
+
+const getArticleFrontmatterBySlug = async (slug: string) => {
+  const fileContents = getArticleRawSourceBySlug(slug)
+
+  const serializedData = await serialize(fileContents, {
+    parseFrontmatter: true,
+  })
+
+  return { ...serializedData.frontmatter, slug } as ArticleType
+}
+
+export const getAllArticles = () => {
+  const slugs = getArticleSlugs()
+
+  const articles = Promise.all(
+    slugs.map((slug) => getArticleFrontmatterBySlug(slug))
+  ).then((sources) =>
+    sources.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  )
+
+  return articles
 }

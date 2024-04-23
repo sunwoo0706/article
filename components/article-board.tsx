@@ -1,9 +1,9 @@
-import { getAllPosts } from "@/lib/api"
+import { getAllArticles } from "@/lib/api"
 
-import { ArticleList } from "./article-list"
+import { ArticleCardList } from "./article-card-list"
 
-export function ArticleBoard() {
-  const posts = getAllPosts()
+export async function ArticleBoard() {
+  const articles = await getAllArticles()
 
-  return <ArticleList posts={posts} />
+  return <ArticleCardList articles={articles} />
 }
