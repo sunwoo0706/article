@@ -7,9 +7,13 @@ interface ArticleCardProps extends React.HTMLAttributes<HTMLElement> {
   article: ArticleType
 }
 
-export function ArticleCard({ className, article, ...props }: ArticleCardProps) {
+export function ArticleCard({
+  className,
+  article,
+  ...props
+}: ArticleCardProps) {
   return (
-    <Link href={`/${article.slug}`}>
+    <Link href={`/articles/${article.slug}`}>
       <section
         className={cx(
           "flex w-full justify-between rounded p-2 px-3 bg-transparent hover:bg-[#F7F7F7] transition-colors cursor-pointer",
