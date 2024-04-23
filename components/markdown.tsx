@@ -11,7 +11,7 @@ type Props = {
 
 export const Markdown = ({ source }: Props) => {
   return (
-    <article className="mt-8 flex w-full flex-col gap-2">
+    <article className="mt-8 flex w-full flex-col gap-y-2">
       <MDXRemote
         {...source}
         components={{
