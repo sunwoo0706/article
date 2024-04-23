@@ -11,25 +11,15 @@ type Props = {
 
 export const Markdown = ({ source }: Props) => {
   return (
-    <article
-      id="markdown"
-      className="flex w-full flex-col gap-y-3 pb-20 leading-loose"
-    >
+    <article className="mt-8 flex w-full flex-col gap-2">
       <MDXRemote
         {...source}
         components={{
-          h1: ({ children }) => (
-            <h1
-              id={children?.toString()}
-              className="pt-10 text-3xl font-semibold"
-            >
-              {children}
-            </h1>
-          ),
+          // heading
           h2: ({ children }) => (
             <h2
               id={children?.toString()}
-              className="pt-10 text-3xl font-semibold"
+              className="mt-6 text-base font-medium"
             >
               {children}
             </h2>
@@ -37,25 +27,28 @@ export const Markdown = ({ source }: Props) => {
           h3: ({ children }) => (
             <h3
               id={children?.toString()}
-              className="pt-6 text-xl font-semibold"
+              className="mt-6 text-base font-medium"
             >
               {children}
             </h3>
           ),
           h4: ({ children }) => (
-            <h4 id={children?.toString()} className="pt-2 text-lg">
+            <h4
+              id={children?.toString()}
+              className="mt-6 text-base font-medium"
+            >
               {children}
             </h4>
           ),
 
-          // Lists
-          ul: ({ children }) => (
-            <ul className="flex list-inside list-disc flex-col gap-y-3">
+          // paragraph
+          p: ({ children }) => (
+            <p
+              id={children?.toString()}
+              className="font-regular text-base leading-7 text-neutral-900"
+            >
               {children}
-            </ul>
-          ),
-          ol: ({ children }) => (
-            <ol className="list-inside list-decimal">{children}</ol>
+            </p>
           ),
 
           // Link
@@ -71,21 +64,15 @@ export const Markdown = ({ source }: Props) => {
 
           // Image
           img: ({ src, alt }) => (
-            <span className="flex w-full justify-center py-6">
+            <div className="my-3 w-full overflow-hidden rounded-md border border-[##EDEDED] bg-white shadow-sm">
               <Image
                 src={src ?? ""}
                 alt={alt ?? ""}
                 width={800}
                 height={400}
-                className="w-full rounded-lg shadow-md md:w-[70%]"
+                className="w-full"
               />
-            </span>
-          ),
-
-          blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-black pl-4">
-              {children}
-            </blockquote>
+            </div>
           ),
         }}
       />
