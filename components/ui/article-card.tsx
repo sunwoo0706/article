@@ -2,6 +2,7 @@ import { cx } from "class-variance-authority"
 import { Link } from "next-view-transitions"
 
 import { ArticleType } from "@/types/article"
+import { formatDateTime } from "@/lib/utils"
 
 interface ArticleCardProps extends React.HTMLAttributes<HTMLElement> {
   article: ArticleType
@@ -21,12 +22,14 @@ export function ArticleCard({
         )}
         {...props}
       >
-        <p className="text-sm font-normal text-neutral-900">{article.title}</p>
+        <p className="text-[0.9375rem] font-normal text-neutral-900">
+          {article.title}
+        </p>
         <time
           className="text-sm font-normal text-[#696565]"
           dateTime={article.date}
         >
-          {article.date}
+          {formatDateTime(article.date)}
         </time>
       </section>
     </Link>

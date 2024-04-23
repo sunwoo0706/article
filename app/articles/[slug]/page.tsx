@@ -1,4 +1,5 @@
 import { getArticleSlugs, getArticleSourceBySlug } from "@/lib/api"
+import { formatDateTime } from "@/lib/utils"
 import { Markdown } from "@/components/markdown"
 import { Toc } from "@/components/toc"
 
@@ -26,7 +27,7 @@ export default async function Article({ params: { slug } }: Params) {
         dateTime={article.date}
         className="mt-2 pl-px text-[0.8125rem] font-normal text-[#696565]"
       >
-        {article.date}
+        {formatDateTime(article.date)}
       </time>
       <Markdown source={source} />
     </div>
