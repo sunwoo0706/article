@@ -1,5 +1,6 @@
 import { getArticleSlugs, getArticleSourceBySlug } from "@/lib/api"
 import { Markdown } from "@/components/markdown"
+import { Toc } from "@/components/toc"
 
 export async function generateStaticParams() {
   return getArticleSlugs().map((slug) => ({ slug }))
@@ -16,7 +17,8 @@ export default async function Article({ params: { slug } }: Params) {
   const article = source.article
 
   return (
-    <section>
+    <div>
+      <Toc />
       <h1 className="text-normal font-medium text-neutral-900">
         {article.title}
       </h1>
@@ -27,6 +29,6 @@ export default async function Article({ params: { slug } }: Params) {
         {article.date}
       </time>
       <Markdown source={source} />
-    </section>
+    </div>
   )
 }
