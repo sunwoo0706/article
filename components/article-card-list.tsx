@@ -9,8 +9,8 @@ export interface IArticleProps {
 export function ArticleCardList({ articles }: IArticleProps) {
   return (
     <div className="flex flex-col gap-1">
-      {articles.map((post) => (
-        <ArticleCard post={post} />
+      {articles.map((article) => (
+        <ArticleCard article={article} />
       ))}
     </div>
   )

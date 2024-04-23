@@ -4,12 +4,12 @@ import { Link } from "next-view-transitions"
 import { ArticleType } from "@/types/article"
 
 interface ArticleCardProps extends React.HTMLAttributes<HTMLElement> {
-  post: ArticleType
+  article: ArticleType
 }
 
-export function ArticleCard({ className, post, ...props }: ArticleCardProps) {
+export function ArticleCard({ className, article, ...props }: ArticleCardProps) {
   return (
-    <Link href={`/${post.slug}`}>
+    <Link href={`/${article.slug}`}>
       <section
         className={cx(
           "flex w-full justify-between rounded p-2 px-3 bg-transparent hover:bg-[#F7F7F7] transition-colors cursor-pointer",
@@ -17,12 +17,12 @@ export function ArticleCard({ className, post, ...props }: ArticleCardProps) {
         )}
         {...props}
       >
-        <p className="text-sm font-normal text-neutral-900">{post.title}</p>
+        <p className="text-sm font-normal text-neutral-900">{article.title}</p>
         <time
           className="text-sm font-normal text-[#696565]"
-          dateTime={post.date}
+          dateTime={article.date}
         >
-          {post.date}
+          {article.date}
         </time>
       </section>
     </Link>
