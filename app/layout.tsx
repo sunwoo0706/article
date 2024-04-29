@@ -33,7 +33,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <ViewTransitions>
       <html lang="ko" suppressHydrationWarning>
         <head />
-        <body className={cn("bg-background font-sans", fontSans.variable)}>
+        <body
+          className={cn(
+            "bg-background font-sans antialiased",
+            fontSans.variable
+          )}
+        >
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             <main className="mx-auto my-12 max-w-2xl px-6 sm:my-32">
               {children}

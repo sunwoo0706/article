@@ -20,12 +20,12 @@ export default async function Article({ params: { slug } }: Params) {
   return (
     <div>
       <Toc />
-      <h1 className="text-normal font-medium text-neutral-900">
+      <h1 className="text-normal font-semibold text-neutral-900">
         {article.title}
       </h1>
       <time
         dateTime={article.date}
-        className="mt-2 pl-px text-[0.8125rem] font-normal text-[#696565]"
+        className="mt-0.5 pl-px text-sm font-normal text-[#696565]"
       >
         {formatDateTime(article.date)}
       </time>

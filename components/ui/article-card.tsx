@@ -22,7 +22,7 @@ export function ArticleCard({
         )}
         {...props}
       >
-        <p className="text-[0.9375rem] font-normal text-neutral-900">
+        <p className="text-[0.9375rem] font-medium text-neutral-900">
           {article.title}
         </p>
         <time
