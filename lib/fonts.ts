@@ -1,14 +1,14 @@
-import {
-  JetBrains_Mono as FontMono,
-  Noto_Sans_KR as FontSans,
-} from "next/font/google"
+import { JetBrains_Mono } from "next/font/google"
+import localFont from "next/font/local"
 
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
-export const fontMono = FontMono({
+export const fontMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+})
+
+export const fontSans = localFont({
+  src: "../static/fonts/PretendardVariable.woff2",
+  display: "swap",
+  weight: "45 920",
+  variable: "--font-sans",
 })
