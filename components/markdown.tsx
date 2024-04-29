@@ -16,6 +16,14 @@ export const Markdown = ({ source }: Props) => {
         {...source}
         components={{
           // heading
+          h1: ({ children }) => (
+            <h2
+              id={children?.toString()}
+              className="mt-6 text-base font-semibold"
+            >
+              {children}
+            </h2>
+          ),
           h2: ({ children }) => (
             <h2
               id={children?.toString()}
@@ -33,6 +41,22 @@ export const Markdown = ({ source }: Props) => {
             </h3>
           ),
           h4: ({ children }) => (
+            <h4
+              id={children?.toString()}
+              className="mt-6 text-base font-semibold"
+            >
+              {children}
+            </h4>
+          ),
+          h5: ({ children }) => (
+            <h4
+              id={children?.toString()}
+              className="mt-6 text-base font-semibold"
+            >
+              {children}
+            </h4>
+          ),
+          h6: ({ children }) => (
             <h4
               id={children?.toString()}
               className="mt-6 text-base font-semibold"
