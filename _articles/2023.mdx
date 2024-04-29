@@ -12,10 +12,111 @@ date: "2024-07-06"
 한글로렘 입숨은 몸이 불편하고, 앉아 있는 동안 근육이 뭉치는 느낌이 듭니다. 그들은 편안함을 찾기 위해 노력하고 있습니다. 그들은 근육이 이완되고 편안해지기를 바랍니다. 이런 식으로 한국어로 된 채움 텍스트를 만들어 사용하실 수 있습니다 `markdown`
 한글로렘 입숨은 몸이 불편하고, 앉아 있는 동안 근육이 뭉치는 느낌이 듭니다. 그들은 편안함을 찾기 위해 노력하고 있습니다. 그들은 근육이 이완되고 편안해지기를 바랍니다. 이런 식으로 한국어로 된 채움 텍스트를 만들어 사용하실 수 있습니다 한글로렘 입숨은 몸이 불편하고, 앉아 있는 동안 근육이 뭉치는 느낌이 듭니다. 그들은 편안함을 찾기 위해 노력하고 있습니다. 그들은 근육이 이완되고 편안해지기를 바랍니다. 이런 식으로 한국어로 된 채움 텍스트를 만들어 사용하실 수 있습니다
 
-```js
-console.log
-console.log
-console.log
-console.log
-console.log
+```tsx
+"use client"
+
+import "../styles/markdown.css"
+import Image from "next/image"
+import { MDXRemote } from "next-mdx-remote"
+
+import { getArticleSourceBySlug } from "@/lib/api"
+
+type Props = {
+  source: Awaited<ReturnType<typeof getArticleSourceBySlug>>
+}
+
+export const Markdown = ({ source }: Props) => {
+  return (
+    <article className="mt-8 flex w-full flex-col gap-y-2">
+      <MDXRemote
+        {...source}
+        components={{
+          // heading
+          h1: ({ children }) => (
+            <h2
+              id={children?.toString()}
+              className="mt-6 text-base font-semibold"
+            >
+              {children}
+            </h2>
+          ),
+          h2: ({ children }) => (
+            <h2
+              id={children?.toString()}
+              className="mt-6 text-base font-semibold"
+            >
+              {children}
+            </h2>
+          ),
+          h3: ({ children }) => (
+            <h3
+              id={children?.toString()}
+              className="mt-6 text-base font-semibold"
+            >
+              {children}
+            </h3>
+          ),
+          h4: ({ children }) => (
+            <h4
+              id={children?.toString()}
+              className="mt-6 text-base font-semibold"
+            >
+              {children}
+            </h4>
+          ),
+          h5: ({ children }) => (
+            <h4
+              id={children?.toString()}
+              className="mt-6 text-base font-semibold"
+            >
+              {children}
+            </h4>
+          ),
+          h6: ({ children }) => (
+            <h4
+              id={children?.toString()}
+              className="mt-6 text-base font-semibold"
+            >
+              {children}
+            </h4>
+          ),
+
+          // paragraph
+          p: ({ children }) => (
+            <p
+              id={children?.toString()}
+              className="text-base font-normal leading-7 text-neutral-900"
+            >
+              {children}
+            </p>
+          ),
+
+          // Link
+          a: ({ children, href }) => (
+            <a
+              target="_blank"
+              href={href}
+              className="inline text-blue-500 hover:text-blue-600 hover:underline"
+            >
+              {children}
+            </a>
+          ),
+
+          // Image
+          img: ({ src, alt }) => (
+            <div className="my-3 w-full overflow-hidden rounded-md border border-[##EDEDED] bg-white shadow-sm">
+              <Image
+                src={src ?? ""}
+                alt={alt ?? ""}
+                width={800}
+                height={400}
+                className="w-full"
+              />
+            </div>
+          ),
+        }}
+      />
+    </article>
+  )
+}
 ```

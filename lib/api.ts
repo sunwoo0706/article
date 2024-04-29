@@ -1,8 +1,12 @@
 import fs from "fs"
 import { join } from "path"
 import { serialize } from "next-mdx-remote/serialize"
+import rehypeCode from "rehype-pretty-code"
+import remarkGfm from "remark-gfm"
 
 import { ArticleType } from "@/types/article"
+
+import { getShikiHighlighter } from "./shiki/getShikiHighlighter"
 
 const articleDir = join(process.cwd(), "_articles")
 
@@ -22,6 +26,18 @@ export const getArticleSourceBySlug = async (slug: string) => {
 
   const serializedData = await serialize(fileContents, {
     mdxOptions: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+        [
+          // @ts-ignore
+          rehypeCode,
+          {
+            theme: "github-light",
+            getHighlighter: getShikiHighlighter,
+            keepBackground: false,
+          },
+        ],
+      ],
       format: "mdx",
     },
     parseFrontmatter: true,
