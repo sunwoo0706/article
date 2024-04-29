@@ -45,7 +45,7 @@ export const Markdown = ({ source }: Props) => {
           p: ({ children }) => (
             <p
               id={children?.toString()}
-              className="font-regular text-[0.9375rem] leading-7 text-neutral-900"
+              className="text-[0.9375rem] font-normal leading-7 text-neutral-900"
             >
               {children}
             </p>
