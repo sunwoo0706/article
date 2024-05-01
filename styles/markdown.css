@@ -17,7 +17,7 @@ pre {
   font-size: small;
   overflow-x: auto;
   border-radius: 0.5rem;
-  margin-top: 0.75rem;
+  margin: 0.75rem 0;
 }
 
 pre > code {
