@@ -1,6 +1,5 @@
 import { getArticleSlugs, getArticleSourceBySlug } from "@/lib/api"
-import { formatDateTime } from "@/lib/utils"
-import { CommectSheet } from "@/components/comment-sheet"
+import { ArticleHeader } from "@/components/article-header"
 import { Markdown } from "@/components/markdown"
 import { Toc } from "@/components/toc"
 
@@ -21,17 +20,8 @@ export default async function Article({ params: { slug } }: Params) {
   return (
     <div>
       <Toc />
-      <h1 className="text-normal font-semibold text-neutral-900">
-        {article.title}
-      </h1>
-      <time
-        dateTime={article.date}
-        className="mt-0.5 pl-px text-sm font-normal text-[#696565]"
-      >
-        {formatDateTime(article.date)}
-      </time>
+      <ArticleHeader {...article} />
       <Markdown source={source} />
-      <CommectSheet />
     </div>
   )
 }

@@ -1,12 +1,14 @@
 import {
   CornerUpLeft,
+  LucideIcon,
   LucideProps,
-  type Icon as LucideIcon,
+  MessagesSquare,
 } from "lucide-react"
 
 export type Icon = LucideIcon
 
 export const Icons = {
+  message: MessagesSquare,
   cornerLeft: CornerUpLeft,
   sign: ({ fill = "#1D1D1F", ...props }: LucideProps) => (
     <svg viewBox="0 0 512 512" {...props}>
