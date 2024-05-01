@@ -1,11 +1,14 @@
-import { ArticleBoard } from "@/components/article-board"
+import { getAllArticles } from "@/lib/api"
+import { ArticleCardList } from "@/components/article-card-list"
 import { SiteConsoleMessage } from "@/components/site-console-message"
 
-export default function IndexPage() {
+export default async function IndexPage() {
+  const articles = await getAllArticles()
+
   return (
     <>
       <SiteConsoleMessage />
-      <ArticleBoard />
+      <ArticleCardList articles={articles} />
     </>
   )
 }
