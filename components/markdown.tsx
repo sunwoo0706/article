@@ -89,7 +89,7 @@ export const Markdown = ({ source }: Props) => {
 
           // Image
           img: ({ src, alt }) => (
-            <div className="my-3 w-full overflow-hidden rounded-md border border-[#EDEDED] bg-white shadow-sm">
+            <div className="my-3 w-full overflow-hidden rounded-md border border-[#EDEDED] bg-white">
               <Image
                 src={src ?? ""}
                 alt={alt ?? ""}
