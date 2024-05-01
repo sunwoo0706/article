@@ -12,7 +12,7 @@ export function Giscus() {
       categoryId="DIC_kwDOLu8X9s4CfCmg"
       mapping="pathname"
       strict="0"
-      reactionsEnabled="1"
+      reactionsEnabled="0"
       emitMetadata="0"
       inputPosition="top"
       theme="light"
