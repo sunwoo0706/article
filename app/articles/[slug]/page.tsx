@@ -1,5 +1,6 @@
 import { getArticleSlugs, getArticleSourceBySlug } from "@/lib/api"
 import { ArticleHeader } from "@/components/article-header"
+import { Giscus } from "@/components/giscus"
 import { Markdown } from "@/components/markdown"
 import { Toc } from "@/components/toc"
 
@@ -22,6 +23,7 @@ export default async function Article({ params: { slug } }: Params) {
       <Toc />
       <ArticleHeader {...article} />
       <Markdown source={source} />
+      <Giscus />
     </div>
   )
 }

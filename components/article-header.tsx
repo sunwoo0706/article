@@ -1,7 +1,5 @@
 import { formatDateTime } from "@/lib/utils"
 
-import { Comment } from "./comment"
-
 interface ArticleHeaderProps {
   title: string
   date: string
@@ -19,7 +17,6 @@ export function ArticleHeader({ title, date }: ArticleHeaderProps) {
           {formatDateTime(date)}
         </time>
       </div>
-      <Comment />
     </div>
   )
 }

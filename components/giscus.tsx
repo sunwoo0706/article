@@ -17,7 +17,6 @@ export function Giscus() {
       inputPosition="top"
       theme="light"
       lang="ko"
-      loading="lazy"
     />
   )
 }
