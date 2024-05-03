@@ -1,4 +1,5 @@
 import { getArticleSlugs, getArticleSourceBySlug } from "@/lib/api"
+import { Separator } from "@/components/ui/separator"
 import { ArticleHeader } from "@/components/article-header"
 import { Giscus } from "@/components/giscus"
 import { Markdown } from "@/components/markdown"
@@ -23,6 +24,7 @@ export default async function Article({ params: { slug } }: Params) {
       <Toc />
       <ArticleHeader {...article} />
       <Markdown source={source} />
+      <Separator className="mb-6 mt-8 bg-[#EDEDED]" />
       <Giscus />
     </div>
   )
