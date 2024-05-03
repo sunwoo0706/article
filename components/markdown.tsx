@@ -99,6 +99,14 @@ export const Markdown = ({ source }: Props) => {
               />
             </div>
           ),
+
+          // List style
+          ul: ({ children }) => (
+            <ul className="list-inside list-disc">{children}</ul>
+          ),
+          ol: ({ children }) => (
+            <ol className="list-inside list-decimal">{children}</ol>
+          ),
         }}
       />
     </article>
