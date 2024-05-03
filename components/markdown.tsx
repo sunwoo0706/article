@@ -107,6 +107,11 @@ export const Markdown = ({ source }: Props) => {
           ol: ({ children }) => (
             <ol className="list-inside list-decimal">{children}</ol>
           ),
+
+          // text style
+          strong: ({ children }) => (
+            <strong className="font-semibold">{children}</strong>
+          ),
         }}
       />
     </article>
