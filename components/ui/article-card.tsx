@@ -14,7 +14,7 @@ export function ArticleCard({
   ...props
 }: ArticleCardProps) {
   return (
-    <Link href={`/articles/${article.slug}`}>
+    <Link href={`/${article.slug}`}>
       <section
         className={cx(
           "flex w-full justify-between rounded p-2 px-3 bg-transparent hover:bg-[#F7F7F7] transition-colors cursor-pointer",
