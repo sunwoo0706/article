@@ -18,7 +18,7 @@ export async function generateMetadata({
   params: { slug },
 }: Params): Promise<Metadata> {
   const { article } = await getArticleSourceBySlug(slug)
-  const title = `${article.title} - ${siteConfig.name}`
+  const title = article.title
 
   const defaultMetadata = {
     title,

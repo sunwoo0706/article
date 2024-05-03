@@ -20,11 +20,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
+  ...defaultMetadata,
   metadataBase: new URL("https://article.sunwoo.xyz"),
-  title: {
-    template: `%s - ${siteConfig.name}`,
-    default: siteConfig.name,
-  },
   icons: {
     icon: "/favicon.ico",
   },
@@ -50,7 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body
           className={cn(
-            "bg-background font-sans selection:bg-[#FFF9A8]",
+            "bg-background font-sans antialiased selection:bg-[#FFF9A8]",
             fontSans.variable
           )}
         >
