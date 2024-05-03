@@ -7,6 +7,11 @@ import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 
+const defaultMetadata = {
+  title: siteConfig.name,
+  description: siteConfig.description,
+}
+
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
@@ -15,13 +20,22 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://article.sunwoo.xyz"),
   title: {
-    default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
+    default: siteConfig.name,
   },
-  description: siteConfig.description,
   icons: {
     icon: "/favicon.ico",
+  },
+  openGraph: {
+    ...defaultMetadata,
+    type: "website",
+  },
+  twitter: {
+    ...defaultMetadata,
+    site: "@sunwoo0706",
+    creator: "@sunwoo0706",
   },
 }
 

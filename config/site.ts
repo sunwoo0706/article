@@ -1,6 +1,6 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "블로그",
-  description: "이선우의 이 세상 것들에 대한 블로그",
+  name: "이선우의 글",
+  description: "제 생각이나 제안 등을 기록하는 곳입니다",
 }
