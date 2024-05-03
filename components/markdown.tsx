@@ -70,7 +70,7 @@ export const Markdown = ({ source }: Props) => {
           p: ({ children }) => (
             <p
               id={children?.toString()}
-              className="text-base font-normal leading-7 text-neutral-900"
+              className="text-base font-[450] leading-7 text-neutral-900"
             >
               {children}
             </p>
@@ -81,7 +81,7 @@ export const Markdown = ({ source }: Props) => {
             <a
               target="_blank"
               href={href}
-              className="inline text-blue-500 hover:text-blue-600 hover:underline"
+              className="inline underline decoration-1 underline-offset-[3px]"
             >
               {children}
             </a>

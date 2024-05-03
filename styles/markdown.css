@@ -1,9 +1,8 @@
 code {
   /* gray 200 */
-  background-color: #e5e7eb;
+  background-color: #f3f3f3;
   border-radius: 0.25rem;
   padding: 0.25rem;
-  margin: 0 0.1rem;
   font-size: small;
   counter-reset: line;
 }
@@ -18,6 +17,8 @@ pre {
   overflow-x: auto;
   border-radius: 0.5rem;
   margin: 0.75rem 0;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
 }
 
 pre > code {
