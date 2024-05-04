@@ -1,6 +1,5 @@
 import { Metadata } from "next"
 
-import { siteConfig } from "@/config/site"
 import { getArticleSlugs, getArticleSourceBySlug } from "@/lib/api"
 import { Separator } from "@/components/ui/separator"
 import { ArticleHeader } from "@/components/article-header"
