@@ -10,8 +10,8 @@ type Params = {
 
 export const alt = "opengraph image"
 export const size = {
-  width: 400,
-  height: 200,
+  width: 800,
+  height: 400,
 }
 
 export const contentType = "image/png"
@@ -30,15 +30,16 @@ export default async function Image({ params: { slug } }: Params) {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 24,
-          background: "white",
+          color: "#171717",
+          fontSize: 48,
+          background: "#EDEDED",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           backgroundImage:
-            "radial-gradient(circle at 20px 20px, lightgray 4%, transparent 0%), radial-gradient(circle at 75px 75px, lightgray 2%, transparent 0%)",
+            "radial-gradient(circle at 20px 20px, #d3d3d3 4%, transparent 0%), radial-gradient(circle at 75px 75px, lightgray 2%, transparent 0%)",
           backgroundSize: "40px 40px",
         }}
       >
