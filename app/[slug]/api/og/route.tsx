@@ -1,6 +1,12 @@
 import { ImageResponse } from "next/og"
 
-export async function GET() {
+import { getArticleSourceBySlug } from "@/lib/api"
+
+export async function GET(request: Request) {
+  const url = new URL(request.url)
+  const slug = url.pathname.split("/")[1]
+  const { article } = await getArticleSourceBySlug(slug)
+
   return new ImageResponse(
     (
       <div
@@ -16,7 +22,7 @@ export async function GET() {
           alignItems: "center",
         }}
       >
-        👋 Hello
+        {article.title}
       </div>
     ),
     {
