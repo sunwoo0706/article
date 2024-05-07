@@ -18,15 +18,18 @@ export async function generateMetadata({
 }: Params): Promise<Metadata> {
   const { article } = await getArticleSourceBySlug(slug)
   const title = article.title
+  const description = article.summary
 
   const defaultMetadata = {
     title,
+    description,
   }
 
   return {
     title: {
       absolute: title,
     },
+    description,
     openGraph: defaultMetadata,
     twitter: {
       ...defaultMetadata,
