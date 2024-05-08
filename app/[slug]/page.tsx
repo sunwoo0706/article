@@ -33,7 +33,6 @@ export async function generateMetadata({
     openGraph: defaultMetadata,
     twitter: {
       ...defaultMetadata,
-      card: "summary",
       site: "@sunwoo0706",
       creator: "@sunwoo0706",
     },
