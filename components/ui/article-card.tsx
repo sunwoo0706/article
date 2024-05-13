@@ -31,9 +31,9 @@ export function ArticleCard({
         <p className="flex items-center gap-2 text-[0.9375rem] font-medium text-[#484848]">
           {article.title}
           {article.summary !== "" ? (
-            <p className="hidden text-sm font-medium text-[#AEAEB2] md:inline-block">
+            <span className="hidden text-sm font-medium text-[#AEAEB2] md:inline-block">
               {article.summary}
-            </p>
+            </span>
           ) : null}
         </p>
       </section>
