@@ -2,7 +2,7 @@ import { cx } from "class-variance-authority"
 import { Link } from "next-view-transitions"
 
 import { ArticleType } from "@/types/article"
-import { formatDateTime } from "@/lib/utils"
+import { formatDateTimeMini } from "@/lib/utils"
 
 interface ArticleCardProps extends React.HTMLAttributes<HTMLElement> {
   article: ArticleType
@@ -17,20 +17,25 @@ export function ArticleCard({
     <Link href={`/${article.slug}`}>
       <section
         className={cx(
-          "flex w-full justify-between rounded p-2 px-3 bg-transparent hover:bg-[#F7F7F7] transition-colors cursor-pointer",
+          "flex w-full justify-start items-center rounded p-2 px-3 bg-transparent hover:bg-[#F7F7F7] transition-colors cursor-pointer",
           className
         )}
         {...props}
       >
-        <p className="text-[0.9375rem] font-medium text-neutral-900">
-          {article.title}
-        </p>
         <time
-          className="text-sm font-normal text-[#696565]"
+          className="w-24 text-sm font-normal text-[#AEAEB2]"
           dateTime={article.date}
         >
-          {formatDateTime(article.date)}
+          {formatDateTimeMini(article.date)}
         </time>
+        <p className="flex items-center gap-2 text-[0.9375rem] font-medium text-[#484848]">
+          {article.title}
+          {article.summary !== "" ? (
+            <p className="hidden text-sm font-medium text-[#AEAEB2] md:inline-block">
+              {article.summary}
+            </p>
+          ) : null}
+        </p>
       </section>
     </Link>
   )

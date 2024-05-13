@@ -11,3 +11,9 @@ export function formatDateTime(dateTime: string) {
 
   return format(parsedDate, "yyyy년 M월 d일")
 }
+
+export function formatDateTimeMini(dateTime: string) {
+  const parsedDate = parse(dateTime, "yyyy-MM-dd", new Date())
+
+  return format(parsedDate, "yy.M.d")
+}

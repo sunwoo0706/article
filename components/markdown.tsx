@@ -20,7 +20,7 @@ export const Markdown = ({ source }: Props) => {
           h1: ({ children }) => (
             <h2
               id={children?.toString()}
-              className="mt-6 text-base font-semibold"
+              className="mt-6 text-base font-semibold text-[#2C2C2C]"
             >
               {children}
             </h2>
@@ -28,7 +28,7 @@ export const Markdown = ({ source }: Props) => {
           h2: ({ children }) => (
             <h2
               id={children?.toString()}
-              className="mt-6 text-base font-semibold"
+              className="mt-6 text-base font-semibold text-[#2C2C2C]"
             >
               {children}
             </h2>
@@ -36,7 +36,7 @@ export const Markdown = ({ source }: Props) => {
           h3: ({ children }) => (
             <h3
               id={children?.toString()}
-              className="mt-6 text-base font-semibold"
+              className="mt-6 text-base font-semibold text-[#2C2C2C]"
             >
               {children}
             </h3>
@@ -44,7 +44,7 @@ export const Markdown = ({ source }: Props) => {
           h4: ({ children }) => (
             <h4
               id={children?.toString()}
-              className="mt-6 text-base font-semibold"
+              className="mt-6 text-base font-semibold text-[#2C2C2C]"
             >
               {children}
             </h4>
@@ -52,7 +52,7 @@ export const Markdown = ({ source }: Props) => {
           h5: ({ children }) => (
             <h4
               id={children?.toString()}
-              className="mt-6 text-base font-semibold"
+              className="mt-6 text-base font-semibold text-[#2C2C2C]"
             >
               {children}
             </h4>
@@ -60,7 +60,7 @@ export const Markdown = ({ source }: Props) => {
           h6: ({ children }) => (
             <h4
               id={children?.toString()}
-              className="mt-6 text-base font-semibold"
+              className="mt-6 text-base font-semibold text-[#2C2C2C]"
             >
               {children}
             </h4>
@@ -70,7 +70,7 @@ export const Markdown = ({ source }: Props) => {
           p: ({ children }) => (
             <p
               id={children?.toString()}
-              className="text-base font-[450] leading-7 text-neutral-900"
+              className="text-base font-[450] leading-7 text-[#484848]"
             >
               {children}
             </p>
@@ -81,7 +81,7 @@ export const Markdown = ({ source }: Props) => {
             <a
               target="_blank"
               href={href}
-              className="inline underline decoration-1 underline-offset-[3px]"
+              className="inline text-base font-[450] leading-7 text-[#484848] underline decoration-1 underline-offset-[3px]"
             >
               {children}
             </a>
@@ -102,10 +102,14 @@ export const Markdown = ({ source }: Props) => {
 
           // List style
           ul: ({ children }) => (
-            <ul className="list-inside list-disc">{children}</ul>
+            <ul className="list-inside list-disc text-base font-[450] leading-7 text-[#484848]">
+              {children}
+            </ul>
           ),
           ol: ({ children }) => (
-            <ol className="list-inside list-decimal">{children}</ol>
+            <ol className="list-inside list-decimal text-base font-[450] leading-7 text-[#484848]">
+              {children}
+            </ol>
           ),
 
           // text style
