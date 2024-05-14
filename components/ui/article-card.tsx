@@ -2,7 +2,6 @@ import { cx } from "class-variance-authority"
 import { Link } from "next-view-transitions"
 
 import { ArticleType } from "@/types/article"
-import { formatDateTimeMini } from "@/lib/utils"
 
 interface ArticleCardProps extends React.HTMLAttributes<HTMLElement> {
   article: ArticleType
@@ -26,7 +25,7 @@ export function ArticleCard({
           className="w-24 text-sm font-normal text-[#AEAEB2]"
           dateTime={article.date}
         >
-          {formatDateTimeMini(article.date)}
+          {article.date}
         </time>
         <p className="flex items-center gap-2 text-[0.9375rem] font-medium text-[#484848]">
           {article.title}
