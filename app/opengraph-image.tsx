@@ -1,13 +1,5 @@
 import { ImageResponse } from "next/og"
 
-import { getArticleSourceBySlug } from "@/lib/api"
-
-type Params = {
-  params: {
-    slug: string
-  }
-}
-
 export const alt = "sunwoo.xyz opengraph image"
 export const size = {
   width: 1200,
@@ -16,7 +8,7 @@ export const size = {
 
 export const contentType = "image/png"
 
-export default async function Image({ params: { slug } }: Params) {
+export default async function Image() {
   return new ImageResponse(
     (
       <div
