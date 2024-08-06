@@ -1,5 +1,6 @@
 import "@/styles/globals.css"
 import { Metadata, type Viewport } from "next"
+import Script from "next/script"
 import { ViewTransitions } from "next-view-transitions"
 
 import { siteConfig } from "@/config/site"
@@ -44,7 +45,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <ViewTransitions>
       <html lang="ko" suppressHydrationWarning>
-        <head />
+        <head>
+          <Script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7538101701582183"
+            crossOrigin="anonymous"
+          />
+        </head>
         <body
           className={cn(
             "bg-background font-sans antialiased selection:bg-[#FFF9A8]",
