@@ -10,7 +10,7 @@ export function ArticleCardList({ articles }: IArticleProps) {
   return (
     <div className="flex flex-col gap-1">
       {articles.map((article, i) => (
-        <ArticleCard article={article} index={i} />
+        <ArticleCard article={article} index={i} key={article.title} />
       ))}
     </div>
   )
