@@ -48,12 +48,14 @@ export default async function Article({ params: { slug } }: Params) {
   const article = source.article
 
   return (
-    <div>
+    <div className="flex flex-col gap-8">
       <Toc />
-      <ArticleHeader {...article} />
-      <Markdown source={source} />
-      <Separator className="mb-6 mt-8 bg-[#EDEDED]" />
-      <Giscus />
+      <div>
+        <ArticleHeader {...article} />
+        <Markdown source={source} />
+        <Separator className="mb-6 mt-8 bg-[#EDEDED]" />
+        <Giscus />
+      </div>
     </div>
   )
 }
