@@ -7,9 +7,6 @@ const nextConfig = {
   reactStrictMode: true,
   // https://github.com/hashicorp/next-mdx-remote/issues/381
   transpilePackages: ["next-mdx-remote"],
-  experimental: {
-    appDir: true,
-  },
 }
 
 const withMDX = createMDX({
