@@ -7,7 +7,7 @@ export const fontMono = JetBrains_Mono({
 })
 
 export const fontSans = localFont({
-  src: "../static/fonts/PretendardVariable.woff2",
+  src: "../public/static/fonts/PretendardVariable.woff2",
   display: "swap",
   weight: "45 920",
   variable: "--font-sans",
