@@ -9,7 +9,10 @@ export const size = {
 
 export default async function Image({ params }: { params: { slug: string } }) {
   const pretendard = fetch(
-    new URL("../public/static/fonts/PretendardVariable.woff2", import.meta.url)
+    new URL(
+      "../../public/static/fonts/PretendardVariable.woff2",
+      import.meta.url
+    )
   ).then((res) => res.arrayBuffer())
 
   return new ImageResponse(
