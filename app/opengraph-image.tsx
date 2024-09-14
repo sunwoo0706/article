@@ -2,28 +2,11 @@ import { readFileSync } from "node:fs"
 import { join } from "node:path"
 import { ImageResponse } from "next/og"
 
-import { getArticleSourceBySlug } from "@/lib/api"
-
-type Params = {
-  params: {
-    slug: string
-  }
-}
-
+export const alt = "sunwoo's article site main"
+export const contentType = "image/png"
 export const size = {
   width: 1200,
   height: 675,
-}
-
-export async function generateImageMetadata({ params: { slug } }: Params) {
-  const { article } = await getArticleSourceBySlug(slug)
-
-  return [
-    {
-      alt: `${article.title} opengraph image`,
-      contentType: "image/png",
-    },
-  ]
 }
 
 function getFontData() {
@@ -38,9 +21,7 @@ function getFontData() {
   return readFileSync(fontPath)
 }
 
-export default async function Image({ params: { slug } }: Params) {
-  const { article } = await getArticleSourceBySlug(slug)
-
+export default async function Image() {
   return new ImageResponse(
     (
       <div
@@ -63,7 +44,7 @@ export default async function Image({ params: { slug } }: Params) {
             whiteSpace: "pre-line",
           }}
         >
-          {article.title}
+          이선우의 글
         </div>
       </div>
     ),
