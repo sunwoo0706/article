@@ -20,6 +20,7 @@ export async function generateImageMetadata({ params: { slug } }: Params) {
 
   return [
     {
+      id: article.title,
       alt: `${article.title} opengraph image`,
       contentType: "image/png",
     },
