@@ -41,7 +41,7 @@ export function ArticleCard({
       <Link href={`/${article.slug}`}>
         <section
           className={cx(
-            "flex w-full justify-start items-start rounded p-2 px-3 bg-transparent hover:bg-[#F7F7F7] transition-colors cursor-pointer",
+            "flex w-full justify-start items-center rounded p-2 px-3 bg-transparent hover:bg-[#F7F7F7] transition-colors cursor-pointer",
             className
           )}
           {...props}

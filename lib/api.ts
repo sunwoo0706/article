@@ -1,5 +1,6 @@
 import fs from "fs"
 import { join } from "path"
+import { hangulIncludes } from "@toss/hangul"
 import { serialize } from "next-mdx-remote/serialize"
 import rehypeCode from "rehype-pretty-code"
 import remarkGfm from "remark-gfm"
@@ -69,4 +70,16 @@ export const getAllArticles = () => {
   )
 
   return articles
+}
+
+export const getSearchedAllArticles = async (keywords: string) => {
+  const allArticles = await getAllArticles()
+
+  return allArticles.filter((article) =>
+    keywords
+      .split(" ")
+      .some((keyword) =>
+        hangulIncludes(`${article.title} ${article.summary}`, keyword)
+      )
+  )
 }
