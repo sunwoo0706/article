@@ -30,9 +30,10 @@ export async function generateMetadata({
       absolute: title,
     },
     description,
-    openGraph: defaultMetadata,
+    openGraph: { ...defaultMetadata, type: "website" },
     twitter: {
       ...defaultMetadata,
+      card: "summary_large_image",
       site: "@sunwoo0706",
       creator: "@sunwoo0706",
     },
