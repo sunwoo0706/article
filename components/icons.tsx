@@ -3,11 +3,13 @@ import {
   LucideIcon,
   LucideProps,
   MessageCircleMore,
+  Search,
 } from "lucide-react"
 
 export type Icon = LucideIcon
 
 export const Icons = {
+  search: Search,
   message: MessageCircleMore,
   cornerLeft: CornerUpLeft,
   sign: ({ fill = "#1D1D1F", ...props }: LucideProps) => (
