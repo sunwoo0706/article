@@ -38,7 +38,10 @@ export function ArticleCard({
         bounce: 0,
       }}
     >
-      <Link href={`/${article.slug}`}>
+      <Link
+        href={`/${article.slug}`}
+        className="inline-block w-full rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      >
         <section
           className={cx(
             "flex w-full justify-start items-center rounded p-2 px-3 bg-transparent hover:bg-[#F7F7F7] transition-colors cursor-pointer",
