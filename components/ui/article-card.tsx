@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
+import { useSearchParams } from "next/navigation"
 import { cx } from "class-variance-authority"
-import { motion } from "framer-motion"
+import { motion, useAnimationControls } from "framer-motion"
 import { Link } from "next-view-transitions"
 
 import { ArticleType } from "@/types/article"
@@ -18,24 +19,31 @@ export function ArticleCard({
   index,
   ...props
 }: ArticleCardProps) {
-  const [shouldAnimate, setShouldAnimate] = useState<boolean>(false)
+  const controls = useAnimationControls()
+
+  const searchParams = useSearchParams()
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShouldAnimate(true)
-    }, 100 * index)
+    controls.start("visible")
+  }, [controls, searchParams])
 
-    return () => clearTimeout(timeout)
-  }, [index])
+  const variants = {
+    hidden: { y: 60, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  }
 
   return (
     <motion.div
-      initial={{ y: 60, opacity: 0 }}
-      animate={shouldAnimate && { y: 0, opacity: 1 }}
+      className={className}
+      variants={variants}
+      initial="hidden"
+      animate={controls}
+      custom={index}
       transition={{
         type: "spring",
         duration: 1.8,
         bounce: 0,
+        delay: index * 0.1,
       }}
     >
       <Link
