@@ -59,7 +59,8 @@ export function SearchBar() {
         onChange={handleChange}
       />
       <Button className="flex gap-1 font-semibold" onClick={handleSearch}>
-        <Icons.search className="size-4" />
+        <Icons.search className="size-3.5" />
+        검색
       </Button>
     </motion.div>
   )
