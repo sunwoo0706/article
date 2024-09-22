@@ -59,9 +59,6 @@ importers:
       next-themes:
         specifier: ^0.2.1
         version: 0.2.1(next@14.2.2(@babel/core@7.24.4)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      next-view-transitions:
-        specifier: ^0.3.1
-        version: 0.3.1(next@14.2.2(@babel/core@7.24.4)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2286,13 +2283,6 @@ packages:
       next: '*'
       react: '*'
       react-dom: '*'
-
-  next-view-transitions@0.3.1:
-    resolution: {integrity: sha512-6MSYp9KxqnXUK/UU08D5X+OwssFKQl407TEEGiuid0KpyPPJxKqtNzRBQz1GzFRY+7esvi+7kijoeNEtr2dX/w==}
-    peerDependencies:
-      next: ^14.0.0
-      react: ^18.2.0
-      react-dom: ^18.2.0
 
   next@14.2.2:
     resolution: {integrity: sha512-oGwUaa2bCs47FbuxWMpOoXtBMPYpvTPgdZr3UAo+pu7Ns00z9otmYpoeV1HEiYL06AlRQQIA/ypK526KjJfaxg==}
@@ -6018,12 +6008,6 @@ snapshots:
       - supports-color
 
   next-themes@0.2.1(next@14.2.2(@babel/core@7.24.4)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
-    dependencies:
-      next: 14.2.2(@babel/core@7.24.4)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-
-  next-view-transitions@0.3.1(next@14.2.2(@babel/core@7.24.4)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       next: 14.2.2(@babel/core@7.24.4)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
