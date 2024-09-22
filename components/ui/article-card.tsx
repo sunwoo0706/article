@@ -60,11 +60,16 @@ export function ArticleCard({
           <time
             className="w-24 shrink-0 text-sm font-normal text-[#AEAEB2]"
             dateTime={article.date}
+            style={{ viewTransitionName: `article-date-${article.slug}` }}
           >
             {article.date}
           </time>
           <p className="flex items-center gap-2 text-[0.9375rem] font-medium text-[#484848]">
-            {article.title}
+            <span
+              style={{ viewTransitionName: `article-title-${article.slug}` }}
+            >
+              {article.title}
+            </span>
             {article.summary !== "" ? (
               <span className="hidden text-sm font-medium text-[#AEAEB2] md:inline-block">
                 {article.summary}
