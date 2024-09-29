@@ -1,6 +1,7 @@
 import "@/styles/globals.css"
 import { Metadata, type Viewport } from "next"
 import Script from "next/script"
+import { ViewTransitions } from "next-view-transitions"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -57,11 +58,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <main className="mx-auto my-12 max-w-2xl px-6 sm:my-32">
-            {children}
-          </main>
-        </ThemeProvider>
+        <ViewTransitions>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+            <main className="mx-auto my-12 max-w-2xl px-6 sm:my-32">
+              {children}
+            </main>
+          </ThemeProvider>
+        </ViewTransitions>
       </body>
     </html>
   )

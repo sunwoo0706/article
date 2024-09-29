@@ -1,10 +1,10 @@
 "use client"
 
 import { useEffect } from "react"
-import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { cx } from "class-variance-authority"
 import { motion, useAnimationControls } from "framer-motion"
+import { Link } from "next-view-transitions"
 
 import { ArticleType } from "@/types/article"
 
@@ -57,31 +57,18 @@ export function ArticleCard({
           )}
           {...props}
         >
-          <motion.time
+          <time
             className="w-24 shrink-0 text-sm font-normal text-[#AEAEB2]"
             dateTime={article.date}
-            transition={{
-              type: "spring",
-              duration: 0.8,
-              bounce: 0,
-              delay: index * 0.1,
-            }}
-            layoutId={`article-date-${article.slug}`}
           >
             {article.date}
-          </motion.time>
+          </time>
           <p className="flex items-center gap-2 text-[0.9375rem] font-medium text-[#484848]">
-            <motion.span
-              transition={{
-                type: "spring",
-                duration: 0.8,
-                bounce: 0,
-                delay: index * 0.1,
-              }}
-              layoutId={`article-title-${article.slug}`}
+            <span
+              style={{ viewTransitionName: `article-title-${article.slug}` }}
             >
               {article.title}
-            </motion.span>
+            </span>
             {article.summary !== "" ? (
               <span className="hidden text-sm font-medium text-[#AEAEB2] md:inline-block">
                 {article.summary}
