@@ -79,7 +79,7 @@ export const getSearchedAllArticles = async (keywords: string) => {
     keywords
       .split(" ")
       .some((keyword) =>
-        hangulIncludes(`${article.title} ${article.summary}`, keyword)
+        hangulIncludes("".concat(article.title, article.summary), keyword)
       )
   )
 }
