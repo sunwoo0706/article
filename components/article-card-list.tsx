@@ -6,7 +6,7 @@ export interface IArticleProps {
   articles: ArticleType[]
 }
 
-export function ArticleCardList({ articles }: IArticleProps) {
+export const ArticleCardList = ({ articles }: IArticleProps) => {
   return (
     <div className="mt-4 flex flex-col gap-1">
       {articles.map((article, i) => (

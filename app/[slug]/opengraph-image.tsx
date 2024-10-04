@@ -15,7 +15,7 @@ export const size = {
   height: 675,
 }
 
-export async function generateImageMetadata({ params: { slug } }: Params) {
+export const generateImageMetadata = async ({ params: { slug } }: Params) => {
   const { article } = await getArticleSourceBySlug(slug)
 
   return [
@@ -27,7 +27,7 @@ export async function generateImageMetadata({ params: { slug } }: Params) {
   ]
 }
 
-function getFontData() {
+const getFontData = () => {
   const fontPath = join(
     process.cwd(),
     "public",

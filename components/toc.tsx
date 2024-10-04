@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { Icons } from "./icons"
 
-export function Toc() {
+export const Toc = () => {
   return (
     <nav className="w-fit lg:fixed lg:top-0 lg:-translate-x-44 lg:translate-y-32">
       <Link href="/" className="flex items-center gap-3 text-[#696565]">

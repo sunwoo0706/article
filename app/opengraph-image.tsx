@@ -9,7 +9,7 @@ export const size = {
   height: 675,
 }
 
-function getFontData() {
+const getFontData = () => {
   const fontPath = join(
     process.cwd(),
     "public",

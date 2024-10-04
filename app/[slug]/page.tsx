@@ -13,9 +13,9 @@ type Params = {
   }
 }
 
-export async function generateMetadata({
+export const generateMetadata = async ({
   params: { slug },
-}: Params): Promise<Metadata> {
+}: Params): Promise<Metadata> => {
   const { article } = await getArticleSourceBySlug(slug)
   const title = article.title
   const description = article.summary
@@ -40,7 +40,7 @@ export async function generateMetadata({
   }
 }
 
-export async function generateStaticParams() {
+export const generateStaticParams = () => {
   return getArticleSlugs().map((slug) => ({ slug }))
 }
 

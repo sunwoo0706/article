@@ -11,7 +11,7 @@ import { getShikiHighlighter } from "./shiki/getShikiHighlighter"
 
 const articleDir = join(process.cwd(), "_articles")
 
-export function getArticleSlugs() {
+export const getArticleSlugs = () => {
   return fs.readdirSync(articleDir).map((slug) => slug.replace(/\.mdx$/, ""))
 }
 

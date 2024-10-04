@@ -8,7 +8,7 @@ interface ArticleHeaderProps {
   slug: string
 }
 
-export function ArticleHeader({ title, date, slug }: ArticleHeaderProps) {
+export const ArticleHeader = ({ title, date, slug }: ArticleHeaderProps) => {
   return (
     <div className="flex items-center justify-between">
       <div className="flex flex-col gap-0.5">

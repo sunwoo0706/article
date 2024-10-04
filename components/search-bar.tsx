@@ -8,7 +8,7 @@ import { Icons } from "./icons"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 
-export function SearchBar() {
+export const SearchBar = () => {
   const [search, setSearch] = useState<string>("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

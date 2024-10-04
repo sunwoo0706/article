@@ -2,7 +2,7 @@
 
 import { default as GiscusCore } from "@giscus/react"
 
-export function Giscus() {
+export const Giscus = () => {
   return (
     <GiscusCore
       id="comments"

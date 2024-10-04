@@ -13,12 +13,12 @@ interface ArticleCardProps extends React.HTMLAttributes<HTMLElement> {
   index: number
 }
 
-export function ArticleCard({
+export const ArticleCard = ({
   className,
   article,
   index,
   ...props
-}: ArticleCardProps) {
+}: ArticleCardProps) => {
   const controls = useAnimationControls()
 
   const searchParams = useSearchParams()
