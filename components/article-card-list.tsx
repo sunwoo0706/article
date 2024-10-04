@@ -1,9 +1,9 @@
-import { ArticleType } from "@/types/article"
+import { Article } from "@/types/article"
 
 import { ArticleCard } from "./ui/article-card"
 
 export interface IArticleProps {
-  articles: ArticleType[]
+  articles: Article[]
 }
 
 export const ArticleCardList = ({ articles }: IArticleProps) => {

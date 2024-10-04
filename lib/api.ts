@@ -5,7 +5,7 @@ import { serialize } from "next-mdx-remote/serialize"
 import rehypeCode from "rehype-pretty-code"
 import remarkGfm from "remark-gfm"
 
-import { ArticleType } from "@/types/article"
+import { Article } from "@/types/article"
 
 import { getShikiHighlighter } from "./shiki/getShikiHighlighter"
 
@@ -46,7 +46,7 @@ export const getArticleSourceBySlug = async (slug: string) => {
 
   return {
     ...serializedData,
-    article: { ...serializedData.frontmatter, slug } as ArticleType,
+    article: { ...serializedData.frontmatter, slug } as Article,
   }
 }
 
@@ -57,7 +57,7 @@ const getArticleFrontmatterBySlug = async (slug: string) => {
     parseFrontmatter: true,
   })
 
-  return { ...serializedData.frontmatter, slug } as ArticleType
+  return { ...serializedData.frontmatter, slug } as Article
 }
 
 export const getAllArticles = () => {

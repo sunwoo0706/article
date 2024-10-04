@@ -1,4 +1,4 @@
-export type ArticleType = {
+export type Article = {
   slug: string
   title: string
   summary: string

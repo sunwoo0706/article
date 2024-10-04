@@ -6,10 +6,10 @@ import { cx } from "class-variance-authority"
 import { motion, useAnimationControls } from "framer-motion"
 import { Link } from "next-view-transitions"
 
-import { ArticleType } from "@/types/article"
+import { Article } from "@/types/article"
 
 interface ArticleCardProps extends React.HTMLAttributes<HTMLElement> {
-  article: ArticleType
+  article: Article
   index: number
 }
 
