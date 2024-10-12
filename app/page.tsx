@@ -21,10 +21,10 @@ export default async function IndexPage({
   }
 
   return (
-    <>
+    <main className="mx-auto my-12 max-w-2xl px-6 sm:my-32">
       <SiteConsoleMessage />
       <SearchBar />
       <ArticleCardList articles={articles} />
-    </>
+    </main>
   )
 }
