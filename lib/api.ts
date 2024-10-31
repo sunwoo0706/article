@@ -1,6 +1,5 @@
 import fs from "fs"
 import { join } from "path"
-import { hangulIncludes } from "@toss/hangul"
 import { serialize } from "next-mdx-remote/serialize"
 import rehypeCode from "rehype-pretty-code"
 import remarkGfm from "remark-gfm"
@@ -8,6 +7,7 @@ import remarkGfm from "remark-gfm"
 import { Article } from "@/types/article"
 
 import { getShikiHighlighter } from "./shiki/getShikiHighlighter"
+import { disassemble } from "es-hangul"
 
 const articleDir = join(process.cwd(), "_articles")
 
@@ -82,4 +82,11 @@ export const getSearchedAllArticles = async (keywords: string) => {
         hangulIncludes(article.title + article.summary, keyword)
       )
   )
+}
+
+const hangulIncludes = (x: string, y: string) => {
+  const disassembledX = disassemble(x);
+  const disassembledY = disassemble(y);
+
+  return disassembledX.includes(disassembledY);
 }
