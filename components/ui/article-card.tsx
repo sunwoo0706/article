@@ -1,9 +1,7 @@
-"use client"
-
 import { useEffect } from "react"
 import { useSearchParams } from "next/navigation"
 import { cx } from "class-variance-authority"
-import { motion, useAnimationControls } from "framer-motion"
+import { motion, useAnimate } from "framer-motion"
 import { Link } from "next-view-transitions"
 
 import { Article } from "@/types/article"
@@ -19,26 +17,25 @@ export const ArticleCard = ({
   index,
   ...props
 }: ArticleCardProps) => {
-  const controls = useAnimationControls()
-
+  const [scope, animate] = useAnimate()
   const searchParams = useSearchParams()
 
   useEffect(() => {
-    controls.start("visible")
-  }, [controls, searchParams])
+    animate(
+      scope.current,
+      { opacity: 1, y: 0 },
+      { duration: 1.8, delay: index * 0.1 }
+    )
 
-  const variants = {
-    hidden: { y: 60, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
-  }
+    animate(scope.current, { opacity: 0, y: 60 }, { duration: 0 })
+  }, [animate, index, scope, searchParams])
 
   return (
     <motion.div
+      ref={scope}
       className={className}
-      variants={variants}
-      initial="hidden"
-      animate={controls}
-      custom={index}
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
         type: "spring",
         duration: 1.8,
