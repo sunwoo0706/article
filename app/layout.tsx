@@ -45,13 +45,6 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7538101701582183"
-          crossOrigin="anonymous"
-        />
-      </head>
       <body
         className={cn(
           "bg-background font-sans antialiased selection:bg-[#FFF9A8]",
