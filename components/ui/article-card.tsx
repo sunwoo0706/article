@@ -28,8 +28,6 @@ export const ArticleCard = ({
       { opacity: 1, y: 0 },
       { duration: 1.8, delay: index * 0.1 }
     )
-
-    animate(scope.current, { opacity: 0, y: 60 }, { duration: 0 })
   }, [animate, index, scope, searchParams])
 
   return (
